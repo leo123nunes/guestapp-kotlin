@@ -1,4 +1,4 @@
-package com.leo123nunes.guestapp.ui.all
+package com.leo123nunes.guestapp.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.leo123nunes.guestapp.R
+import com.leo123nunes.guestapp.viewModel.AllViewModel
 
 class AllFragment : Fragment() {
 

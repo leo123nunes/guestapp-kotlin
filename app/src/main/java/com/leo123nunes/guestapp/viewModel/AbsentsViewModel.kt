@@ -1,4 +1,4 @@
-package com.leo123nunes.guestapp.ui.absents
+package com.leo123nunes.guestapp.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
