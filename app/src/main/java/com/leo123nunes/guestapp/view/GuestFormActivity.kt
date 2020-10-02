@@ -12,35 +12,36 @@ import kotlinx.android.synthetic.main.activity_guest_form.*
 
 class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var guestViewModel: GuestFormViewModel
+    private lateinit var viewModel: GuestFormViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guest_form)
 
-        guestViewModel = ViewModelProvider(this).get(GuestFormViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(GuestFormViewModel::class.java)
 
-        //setListeners()
-        //observers()
+        setListeners()
+        observers()
     }
 
-//    fun observers(){
-//        guestViewModel.observe(this, Observer{
-//            if(guestViewModel.presenceGuestFormViewModel.value==true){
-//                Toast.makeText(applicationContext,"Convidado $it adicionado.",Toast.LENGTH_LONG).show()
-//            }else{
-//                Toast.makeText(applicationContext,"Convidado $it não confirmação.",Toast.LENGTH_LONG).show()
-//            }
-//        })
-//    }
-//
-//    fun setListeners(){
-//        buttonSave.setOnClickListener(this)
-//    }
+    fun observers(){
+        viewModel.savedGuest.observe(this, Observer{
+            if(it == true){
+                Toast.makeText(applicationContext,"Convidado adicionado.",Toast.LENGTH_LONG).show()
+            }else{
+                Toast.makeText(applicationContext,"Convidado não confirmado.",Toast.LENGTH_LONG).show()
+            }
+            finish()
+        })
+    }
+
+    fun setListeners(){
+        buttonSave.setOnClickListener(this)
+    }
     override fun onClick(v: View) {
-//        var id = v.id
-//        if (id == R.id.buttonSave){
-//            guestViewModel.save(guestName.text.toString(),button_presence.isChecked())
-//        }
+        var id = v.id
+        if (id == R.id.buttonSave){
+            viewModel.saveGuest(guestName.text.toString(),button_presence.isChecked())
+        }
     }
 }

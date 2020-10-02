@@ -24,7 +24,7 @@ class GuestDataBaseHelper(context: Context) : SQLiteOpenHelper(
 
     private val CREATE_TABLE_GUEST = ("create table " +
             DataBaseConstants.GUEST.TABLE_NAME + (" (") +
-            DataBaseConstants.GUEST.COLUMNS.ID + " integer primary key autoincrement " +
+            DataBaseConstants.GUEST.COLUMNS.ID + " integer primary key autoincrement, " +
             DataBaseConstants.GUEST.COLUMNS.NAME + " text, " +
             DataBaseConstants.GUEST.COLUMNS.PRESENCE + " integer);")
 }
