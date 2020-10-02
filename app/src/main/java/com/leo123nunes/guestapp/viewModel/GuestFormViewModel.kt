@@ -1,26 +1,20 @@
 package com.leo123nunes.guestapp.viewModel
 
-import android.widget.Toast
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.leo123nunes.guestapp.GuestFormActivity
 import com.leo123nunes.guestapp.services.model.GuestModel
 import com.leo123nunes.guestapp.services.repositories.GuestRepository
 
-class GuestFormViewModel: ViewModel() {
-    lateinit private var mGuestFormViewModel: MutableLiveData<String>
-    lateinit private var mPresenceGuestFormViewModel: MutableLiveData<Boolean>
+class GuestFormViewModel(application: Application): AndroidViewModel(application) {
+    private var context = application.applicationContext
 
-    private var guestRepository = GuestRepository()
+    private var guestRepository: GuestRepository = GuestRepository.getInstance(context)
 
-    var guestFormViewModel: LiveData<String> = mGuestFormViewModel
-    var presenceGuestFormViewModel: LiveData<Boolean> = mPresenceGuestFormViewModel
-
-    fun addGuest(guestName: String, guestPresence: Boolean){
-        var newGuest = GuestModel(guestName, guestPresence)
-        mGuestFormViewModel.value = guestName
-        mPresenceGuestFormViewModel.value = guestPresence
+    fun save(guestName: String, guestPresence: Boolean){
+        var newGuest = GuestModel(name = guestName, presence = guestPresence)
         guestRepository.save(newGuest)
     }
 
