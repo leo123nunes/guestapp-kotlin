@@ -15,15 +15,19 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var viewModel: GuestFormViewModel
 
+    private var mGuestId: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guest_form)
 
         viewModel = ViewModelProvider(this).get(GuestFormViewModel::class.java)
 
-        loadData()
         setListeners()
         observers()
+        loadData()
+
+        button_presence.isChecked = true
     }
 
     fun observers(){
@@ -52,7 +56,7 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var id = v.id
         if (id == R.id.buttonSave){
-            viewModel.saveGuest(guestName.text.toString(),button_presence.isChecked())
+            viewModel.saveGuest(mGuestId, guestName.text.toString(),button_presence.isChecked())
         }
     }
 
@@ -60,9 +64,9 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
         val bundle = intent.extras
 
         if(bundle!=null){
-            val id = bundle.getInt(GuestConstants.GUESTID)
+            mGuestId = bundle.getInt(GuestConstants.GUESTID)
 
-            viewModel.load(id)
+            viewModel.load(mGuestId)
         }
     }
 }

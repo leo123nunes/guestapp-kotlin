@@ -17,10 +17,15 @@ class GuestFormViewModel(application: Application): AndroidViewModel(application
 
     var savedGuest = MutableLiveData<Boolean>()
 
-    fun saveGuest(guestName: String, guestPresence: Boolean){
-        var newGuest = GuestModel(name = guestName, presence = guestPresence)
-        savedGuest.value = newGuest.presence==true
-        guestRepository.save(newGuest)
+    fun saveGuest(id: Int, guestName: String, guestPresence: Boolean){
+        var newGuest = GuestModel(id,name = guestName, presence = guestPresence)
+
+        if(id==0){
+            savedGuest.value = newGuest.presence==true
+            guestRepository.save(newGuest)
+        }else{
+            savedGuest.value = guestRepository.update(newGuest)
+        }
     }
 
     fun load(id: Int){
