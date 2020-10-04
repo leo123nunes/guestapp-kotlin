@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.leo123nunes.guestapp.R
+import com.leo123nunes.guestapp.constants.GuestConstants
 import com.leo123nunes.guestapp.viewModel.GuestFormViewModel
 import kotlinx.android.synthetic.main.activity_guest_form.*
 
@@ -20,6 +21,7 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
         viewModel = ViewModelProvider(this).get(GuestFormViewModel::class.java)
 
+        loadData()
         setListeners()
         observers()
     }
@@ -33,6 +35,15 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
             }
             finish()
         })
+
+        viewModel.mGuest.observe(this, Observer {
+            guestName.setText(it.name)
+            if(it.presence){
+                button_presence.isChecked = true
+            }else{
+                button_absence.isChecked = true
+            }
+        })
     }
 
     fun setListeners(){
@@ -42,6 +53,16 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
         var id = v.id
         if (id == R.id.buttonSave){
             viewModel.saveGuest(guestName.text.toString(),button_presence.isChecked())
+        }
+    }
+
+    private fun loadData(){
+        val bundle = intent.extras
+
+        if(bundle!=null){
+            val id = bundle.getInt(GuestConstants.GUESTID)
+
+            viewModel.load(id)
         }
     }
 }
