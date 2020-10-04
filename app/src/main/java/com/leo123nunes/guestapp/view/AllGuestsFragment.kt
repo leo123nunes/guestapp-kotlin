@@ -20,7 +20,7 @@ import com.leo123nunes.guestapp.viewModel.AllGuestsViewModel
 
 class AllGuestsFragment : Fragment() {
 
-    private lateinit var allGuestsViewModel: AllGuestsViewModel
+    private lateinit var mViewModel: AllGuestsViewModel
     private val mAdapter: GuestAdapter = GuestAdapter()
     private lateinit var mListener: GuestListener
 
@@ -29,7 +29,7 @@ class AllGuestsFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        allGuestsViewModel = ViewModelProvider(this).get(AllGuestsViewModel::class.java)
+        mViewModel = ViewModelProvider(this).get(AllGuestsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_all, container, false)
 
         var recycle = root.findViewById<RecyclerView>(R.id.recycle_All_Guests)
@@ -49,11 +49,16 @@ class AllGuestsFragment : Fragment() {
                 startActivity(intent)
             }
 
+            override fun onDelete(id: Int){
+                mViewModel.delete(id)
+                mViewModel.load()
+            }
+
         }
 
         mAdapter.attachListener(mListener)
 
-        allGuestsViewModel.load()
+        mViewModel.load()
 
         observer()
 
@@ -61,12 +66,12 @@ class AllGuestsFragment : Fragment() {
     }
 
     override fun onResume() {
-        allGuestsViewModel.load()
+        mViewModel.load()
         super.onResume()
     }
 
     private fun observer(){
-        allGuestsViewModel.guestList.observe(viewLifecycleOwner, Observer {
+        mViewModel.guestList.observe(viewLifecycleOwner, Observer {
             mAdapter.updateGuest(it)
         })
     }

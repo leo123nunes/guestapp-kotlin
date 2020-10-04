@@ -19,4 +19,8 @@ class AllGuestsViewModel(application: Application) : AndroidViewModel(applicatio
     fun load(){
         mGuestList.value = mGuestsRepository.getListAll()
     }
+
+    fun delete(id: Int){
+        mGuestsRepository.delete(id)
+    }
 }
