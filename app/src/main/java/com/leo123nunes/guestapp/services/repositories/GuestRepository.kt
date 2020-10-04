@@ -140,13 +140,12 @@ class GuestRepository private constructor(context: Context) {
     }
 
     fun getListPresents(): List<GuestModel> {
-        var list: MutableList<GuestModel> = ArrayList()
-        var db = mGuestDataBaseHelper.writableDatabase
-        var guest: GuestModel ?= null
+        val list: MutableList<GuestModel> = ArrayList()
 
         return try {
+            var db = mGuestDataBaseHelper.writableDatabase
 
-            val cursor = db.rawQuery("SELECT id, name, presence FROM Guest WHERE presence = 1",null)
+            val cursor = db.rawQuery("SELECT id, name, presence FROM convidados WHERE presence = 1",null)
 
             if (cursor != null && cursor.count > 0) {
 
@@ -154,7 +153,7 @@ class GuestRepository private constructor(context: Context) {
                     var name = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.NAME))
                     var presence = (cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.PRESENCE))==1)
                     var id = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.ID))
-                    guest = GuestModel (id, name, presence)
+                    val guest = GuestModel (id, name, presence)
                     list.add(guest)
                 }
 
@@ -170,12 +169,12 @@ class GuestRepository private constructor(context: Context) {
 
     fun getListAbsences(): List<GuestModel> {
         var list: MutableList<GuestModel> = ArrayList()
-        var db = mGuestDataBaseHelper.writableDatabase
-        var guest: GuestModel ?= null
+
 
         return try {
+            var db = mGuestDataBaseHelper.writableDatabase
 
-            val cursor = db.rawQuery("SELECT id, name, presence FROM Guest WHERE presence = 0",null)
+            val cursor = db.rawQuery("SELECT id, name, presence FROM convidados WHERE presence = 0",null)
 
             if (cursor != null && cursor.count > 0) {
 
@@ -183,7 +182,7 @@ class GuestRepository private constructor(context: Context) {
                     var name = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.NAME))
                     var presence = (cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.PRESENCE))==1)
                     var id = cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.ID))
-                    guest = GuestModel (id, name, presence)
+                    var guest = GuestModel (id, name, presence)
                     list.add(guest)
                 }
 

@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.leo123nunes.guestapp.constants.GuestConstants
 import com.leo123nunes.guestapp.services.model.GuestModel
 import com.leo123nunes.guestapp.services.repositories.GuestRepository
 
@@ -16,8 +17,12 @@ class AllGuestsViewModel(application: Application) : AndroidViewModel(applicatio
 
     val guestList: LiveData<List<GuestModel>> = mGuestList
 
-    fun load(){
-        mGuestList.value = mGuestsRepository.getListAll()
+    fun load(filter: Int){
+        when (filter) {
+            GuestConstants.FILTER.EMPTY -> mGuestList.value = mGuestsRepository.getListAll()
+            GuestConstants.FILTER.PRESENTS -> mGuestList.value = mGuestsRepository.getListPresents()
+            GuestConstants.FILTER.ABSENTS -> mGuestList.value = mGuestsRepository.getListAbsences()
+        }
     }
 
     fun delete(id: Int){

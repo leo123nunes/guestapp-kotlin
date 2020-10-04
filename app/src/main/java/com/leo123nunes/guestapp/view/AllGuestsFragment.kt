@@ -51,14 +51,14 @@ class AllGuestsFragment : Fragment() {
 
             override fun onDelete(id: Int){
                 mViewModel.delete(id)
-                mViewModel.load()
+                mViewModel.load(GuestConstants.FILTER.EMPTY)
             }
 
         }
 
         mAdapter.attachListener(mListener)
 
-        mViewModel.load()
+        mViewModel.load(GuestConstants.FILTER.EMPTY)
 
         observer()
 
@@ -66,7 +66,7 @@ class AllGuestsFragment : Fragment() {
     }
 
     override fun onResume() {
-        mViewModel.load()
+        mViewModel.load(GuestConstants.FILTER.EMPTY)
         super.onResume()
     }
 
