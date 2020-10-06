@@ -1,6 +1,6 @@
 # AndroidStudio-Kotlin_GuestApp
 Aplicativo para adicionar convidados em uma lista. Possui as funcionalidades de adicionar novo convidado, buscar por convidados ausentes ou 
-confirmados e excluir convidados. O repositório contém uma pasta com as imagens do aplicativo em execução após sua finalização.
+confirmados e excluir convidados.
 
 # Linguagem de programação
 Kotlin.
