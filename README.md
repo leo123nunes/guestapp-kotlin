@@ -12,25 +12,11 @@ Android Studio 4.0.1
 7.1.1
 
 # Screenshots
-addContact<br></br>
-![addContact](https://user-images.githubusercontent.com/53942734/143697310-f6d7a9c9-5602-4b19-8f01-06f03f879f93.png)
-<br></br>attachBar<br></br>
-![attachBar](https://user-images.githubusercontent.com/53942734/143697328-993eb822-de88-4be8-b3c0-4e3db9345849.png)
-<br></br>auth<br></br>
-![auth](https://user-images.githubusercontent.com/53942734/143697335-0ea7f431-118f-4b0f-8758-e0c5b61472a1.png)
-<br></br>editProfile<br></br>
-![editProfile](https://user-images.githubusercontent.com/53942734/143697338-9118e281-4bbf-47d8-9377-0568b3b822d8.png)
-<br></br>emojes<br></br>
-![emojes](https://user-images.githubusercontent.com/53942734/143697344-db562868-ed92-4fec-9118-f61a752f7c25.png)
-<br></br>firstLogin<br></br>
-![firstLogin](https://user-images.githubusercontent.com/53942734/143697351-39c05705-021c-416e-91e7-8611a14fe056.png)
-<br></br>messages<br></br>
-![messages](https://user-images.githubusercontent.com/53942734/143697359-25360076-5378-4494-be58-fe4f2504324b.png)
-<br></br>sendingContact<br></br>
-![sendingContact1](https://user-images.githubusercontent.com/53942734/143697367-8d5990ef-2be8-4c0d-9b37-2e3408b71cb6.png)
-<br></br>sendingContact<br></br>
-![sendingContact2](https://user-images.githubusercontent.com/53942734/143697375-769d2d5d-b09d-444b-8da4-f199c136e3a6.png)
-<br></br>sendingemojes<br></br>
-![sendingemojes](https://user-images.githubusercontent.com/53942734/143697382-ebf1472d-7e61-43e4-9a68-d781fbd96208.png)
-<br></br>takingPhoto<br></br>
-![takingPhoto](https://user-images.githubusercontent.com/53942734/143697389-62610e6a-91d2-4fb9-ab9d-b6d4ef65fc4d.png)
+![image1](https://user-images.githubusercontent.com/53942734/143706379-28c75273-b7ac-4757-818c-fd681bc1d8b4.png)<br></br>
+![image2](https://user-images.githubusercontent.com/53942734/143706394-e0f8f6f4-1cb5-4cd7-b675-4e894a1a9044.png)<br></br><br></br>
+![image3](https://user-images.githubusercontent.com/53942734/143706400-9a92322b-f1f7-4c58-970a-16ed3dabbbf8.png)<br></br>
+![image4](https://user-images.githubusercontent.com/53942734/143706406-09605da4-104f-403e-83b1-a4b26e81f4af.png)<br></br>
+![image5](https://user-images.githubusercontent.com/53942734/143706412-e2b4f82e-f517-4df1-9002-288e5555c16d.png)<br></br>
+![image6](https://user-images.githubusercontent.com/53942734/143706417-692e185e-8d1c-4435-aa43-f8fe8e38cd63.png)<br></br>
+![image7](https://user-images.githubusercontent.com/53942734/143706422-2800974c-bae7-46ba-a41d-17266c2a9c9e.png)<br></br>
+![image8](https://user-images.githubusercontent.com/53942734/143706429-289ca5e4-c8d0-46f9-8c9b-bc441bc39082.png)<br></br>
