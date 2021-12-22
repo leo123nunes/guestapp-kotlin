@@ -2,7 +2,7 @@
 Application to add guests to a list. It has the functionality of adding a new guest, searching for absent guests or
 confirmed and delete guests.
 
-## Language
+## Code language
 Kotlin.
 
 ## IDE
